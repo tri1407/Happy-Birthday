@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday, Bảo Uyên ✦</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+        :root {
+            --bg: #0b0b0d;
+            --text: #f5f2ef;
+            --muted: #aaa6a2;
+            --accent: #e9a0a9;
+            --accent-light: #ffd9dd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================== */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -5;
+            overflow: hidden;
+        }
+
+        .gradient {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            filter: blur(130px);
+            opacity: 0.13;
+        }
+
+        .gradient.one {
+            background: #e45f75;
+            top: -300px;
+            right: -200px;
+        }
+
+        .gradient.two {
+            background: #8d5262;
+            bottom: -350px;
+            left: -250px;
+        }
+
+        /* =========================
+           NAV
+        ========================== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 28px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 20;
+
+            background: linear-gradient(
+                to bottom,
+                rgba(11,11,13,0.75),
+                transparent
+            );
+
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        .date {
+            color: var(--muted);
+            font-size: 13px;
+            letter-spacing: 0.08em;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+            padding: 140px 8% 80px;
+
+            display: grid;
+            grid-template-columns: 1fr 0.9fr;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .hero-text {
+            animation: fadeUp 1.2s ease forwards;
+        }
+
+        .small-title {
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            font-size: 12px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(55px, 8vw, 105px);
+            line-height: 0.95;
+            font-weight: 500;
+            letter-spacing: -0.04em;
+        }
+
+        h1 span {
+            color: var(--accent-light);
+            font-style: italic;
+        }
+
+        .hero-description {
+            margin-top: 35px;
+            max-width: 490px;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            animation: imageReveal 1.5s cubic-bezier(.2,.8,.2,1);
+        }
+
+        .hero-image-container::before {
+            content: "";
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            background: var(--accent);
+            filter: blur(90px);
+            opacity: 0.18;
+            z-index: -1;
+        }
+
+        .hero-image {
+            width: min(430px, 85vw);
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 220px 220px 25px 25px;
+
+            filter: saturate(0.9);
+
+            box-shadow:
+                0 40px 100px rgba(0,0,0,0.55),
+                0 0 0 1px rgba(255,255,255,0.08);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 22px;
+            right: 5%;
+            padding: 10px 15px;
+
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+
+            background: rgba(10,10,12,0.65);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(12px);
+
+            border-radius: 100px;
+        }
+
+        /* =========================
+           BUTTON
+        ========================== */
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-top: 35px;
+            padding: 15px 23px;
+
+            color: #111;
+            background: var(--text);
+
+            border: none;
+            border-radius: 100px;
+
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            background: var(--accent-light);
+            box-shadow: 0 15px 40px rgba(233,160,169,0.2);
+        }
+
+        .arrow {
+            transition: 0.3s ease;
+        }
+
+        .button:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        /* =========================
+           MESSAGE
+        ========================== */
+
+        .message-section {
+            min-height: 100vh;
+            padding: 130px 8%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .message {
+            max-width: 780px;
+            text-align: center;
+        }
+
+        .message-label {
+            color: var(--accent);
+            font-size: 12px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+        }
+
+        .message h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(35px, 5vw, 62px);
+            line-height: 1.15;
+            font-weight: 500;
+            margin-bottom: 35px;
+        }
+
+        .message h2 em {
+            color: var(--accent-light);
+        }
+
+        .message p {
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 2;
+            margin: 0 auto 20px;
+            max-width: 650px;
+        }
+
+        .signature {
+            margin-top: 50px;
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-size: 22px;
+            color: var(--accent-light);
+        }
+
+        /* =========================
+           QUOTE
+        ========================== */
+
+        .quote {
+            padding: 120px 8%;
+            text-align: center;
+        }
+
+        .quote-line {
+            width: 50px;
+            height: 1px;
+            background: var(--accent);
+            margin: 0 auto 40px;
+        }
+
+        .quote p {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(27px, 4vw, 48px);
+            line-height: 1.3;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .quote span {
+            color: var(--accent-light);
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            padding: 40px 8%;
+            border-top: 1px solid rgba(255,255,255,0.07);
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #666;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        /* =========================
+           PARTICLES
+        ========================== */
+
+        .particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: var(--accent-light);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            z-index: -1;
+
+            animation: float 8s linear infinite;
+        }
+
+        /* =========================
+           CONFETTI
+        ========================== */
+
+        .confetti {
+            position: fixed;
+            width: 8px;
+            height: 12px;
+            top: -20px;
+            z-index: 100;
+
+            pointer-events: none;
+
+            animation:
+                fall 3s linear forwards,
+                spin 1s linear infinite;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================== */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes imageReveal {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+                filter: blur(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.5;
+            }
+
+            80% {
+                opacity: 0.25;
+            }
+
+            100% {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fall {
+            to {
+                transform:
+                    translateY(110vh)
+                    rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes spin {
+            from {
+                margin-left: 0;
+            }
+
+            to {
+                margin-left: 30px;
+            }
+        }
+
+        /* =========================
+           HIDDEN MESSAGE
+        ========================== */
+
+        .hidden-message {
+            opacity: 0;
+            transform: translateY(30px);
+            max-height: 0;
+            overflow: hidden;
+            transition:
+                opacity 1s ease,
+                transform 1s ease,
+                max-height 1.2s ease;
+        }
+
+        .hidden-message.show {
+            opacity: 1;
+            transform: translateY(0);
+            max-height: 1000px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 22px 6%;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 120px;
+                gap: 55px;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-image-container {
+                order: -1;
+            }
+
+            .hero-image {
+                width: min(350px, 85vw);
+            }
+
+            .message-section {
+                padding-top: 80px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background -->
+    <div class="background">
+        <div class="gradient one"></div>
+        <div class="gradient two"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">For Bảo Uyên</div>
+        <div class="date">22 · 09</div>
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <div class="small-title">
+                A little message for you
+            </div>
+
+            <h1>
+                Happy<br>
+                <span>Birthday.</span>
+            </h1>
+
+            <p class="hero-description">
+                Có một ngày trong năm mà mình muốn dành riêng
+                một chút thời gian để nói rằng — mình thật sự
+                vui vì bạn đã xuất hiện trên thế giới này.
+            </p>
+
+            <button class="button" id="openMessage">
+                Mở lời chúc
+                <span class="arrow">→</span>
+            </button>
+
+        </div>
+
+
+        <div class="hero-image-container">
+
+            <!-- Đổi tên file tại đây nếu cần -->
+            <img
+                src="picture.jpg"
+                alt="Nguyễn Ngọc Bảo Uyên"
+                class="hero-image"
+            >
+
+            <div class="image-caption">
+                22 / 09
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MESSAGE
+    ========================== -->
+
+    <section class="message-section">
+
+        <div class="message">
+
+            <div class="message-label">
+                Dear Bảo Uyên
+            </div>
+
+            <h2>
+                Hôm nay là ngày của <em>bạn.</em>
+            </h2>
+
+
+            <div class="hidden-message" id="hiddenMessage">
+
+                <p>
+                    Chúc mừng sinh nhật bạn nhé! 🎂
+                </p>
+
+                <p>
+                    Mình không biết phải viết một lời chúc thật hoa mỹ
+                    như thế nào, nên thôi cứ nói những điều đơn giản nhất.
+                </p>
+
+                <p>
+                    Mong rằng tuổi mới sẽ mang đến cho bạn thật nhiều
+                    niềm vui, những người bạn tốt, những khoảnh khắc
+                    đáng nhớ và thật nhiều điều khiến bạn mỉm cười.
+                </p>
+
+                <p>
+                    Nếu có những ngày mọi thứ không được như ý,
+                    thì cũng đừng quên rằng chẳng sao cả.
+                    Bạn không cần phải lúc nào cũng hoàn hảo.
+                    Cứ bước tiếp theo cách của riêng bạn là được.
+                </p>
+
+                <p>
+                    Và hy vọng khi nhìn lại tuổi mới này,
+                    bạn sẽ có thể nói rằng:
+                    <br>
+                    <strong>
+                        "Ừ, năm nay thật sự đáng nhớ."
+                    </strong>
+                </p>
+
+                <div class="signature">
+                    — From someone who wishes you well.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUOTE
+    ========================== -->
+
+    <section class="quote">
+
+        <div class="quote-line"></div>
+
+        <p>
+            "May this year be filled with
+            <span>little moments</span>
+            worth remembering."
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div>
+            NGUYỄN NGỌC BẢO UYÊN
+        </div>
+
+        <div>
+            22 / 09 · MADE WITH ✦
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        /* =====================================
+           PARTICLES
+        ===================================== */
+
+        function createParticles() {
+
+            for (let i = 0; i < 35; i++) {
+
+                const particle = document.createElement("div");
+
+                particle.classList.add("particle");
+
+                particle.style.left =
+                    Math.random() * 100 + "%";
+
+                particle.style.animationDelay =
+                    Math.random() * 8 + "s";
+
+                particle.style.animationDuration =
+                    5 + Math.random() * 8 + "s";
+
+                particle.style.transform =
+                    `scale(${0.5 + Math.random()})`;
+
+                document.body.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+
+        /* =====================================
+           OPEN MESSAGE
+        ===================================== */
+
+        const button =
+            document.getElementById("openMessage");
+
+        const message =
+            document.getElementById("hiddenMessage");
+
+        let opened = false;
+
+        button.addEventListener("click", () => {
+
+            if (opened) return;
+
+            opened = true;
+
+            message.classList.add("show");
+
+            button.innerHTML =
+                `Đã mở ✦`;
+
+            createConfetti();
+
+            setTimeout(() => {
+
+                message.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }, 400);
+
+        });
+
+
+        /* =====================================
+           CONFETTI
+        ===================================== */
+
+        function createConfetti() {
+
+            const symbols = [
+                "✦",
+                "✧",
+                "•",
+                "♡",
+                "✿"
+            ];
+
+            for (let i = 0; i < 80; i++) {
+
+                const piece =
+                    document.createElement("div");
+
+                piece.classList.add("confetti");
+
+                piece.innerHTML =
+                    symbols[
+                        Math.floor(
+                            Math.random() * symbols.length
+                        )
+                    ];
+
+                piece.style.left =
+                    Math.random() * 100 + "vw";
+
+                piece.style.fontSize =
+                    8 + Math.random() * 14 + "px";
+
+                piece.style.animationDelay =
+                    Math.random() * 1.5 + "s";
+
+                piece.style.animationDuration =
+                    2.5 + Math.random() * 2 + "s";
+
+                document.body.appendChild(piece);
+
+                setTimeout(() => {
+                    piece.remove();
+                }, 5000);
+            }
+        }
+
+
+        /* =====================================
+           PARALLAX IMAGE
+        ===================================== */
+
+        const image =
+            document.querySelector(".hero-image");
+
+        window.addEventListener("mousemove", (event) => {
+
+            if (window.innerWidth < 800) return;
+
+            const x =
+                (event.clientX / window.innerWidth - 0.5) * 8;
+
+            const y =
+                (event.clientY / window.innerHeight - 0.5) * 8;
+
+            image.style.transform =
+                `translate(${x}px, ${y}px)`;
+        });
+
+        window.addEventListener("mouseleave", () => {
+            image.style.transform = "translate(0,0)";
+        });
+
+    </script>
+
+</body>
+</html>
